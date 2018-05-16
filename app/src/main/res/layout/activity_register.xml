@@ -1,0 +1,199 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    tools:context=".Classes.Register">
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher" />
+
+
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/et_mobileNumberCod"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/imageview"
+        android:textColor="@color/colorAccent"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[Before You Proceed, Please Make Sure Your Internet Is Working]"/>
+    <TextView
+        android:gravity="center"
+        android:id="@+id/et_Ex"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/et_mobileNumberCod"
+        android:textColor="@color/colorAccent"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[Example: 0545227775]"/>
+
+    <com.hbb20.CountryCodePicker
+        android:layout_marginTop="20dp"
+        app:ccp_clickable="true"
+        app:ccp_autoDetectCountry="true"
+        android:layout_toLeftOf="@+id/ed_phone"
+        android:layout_marginRight="15dp"
+        android:id="@+id/ccp"
+        app:ccp_contentColor="@color/colorAccent"
+        android:layout_below="@id/et_Ex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ccp_countryPreference="us,in"
+        />
+    <android.support.v7.widget.AppCompatEditText
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/ed_phone"
+        android:layout_below="@id/et_Ex"
+        android:textColorHint="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter Phone Number"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content" />
+    <Button
+
+        android:id="@+id/auth_button"
+        android:layout_below="@id/ccp"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Send Code"
+        android:background="@color/sc_red"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/txtoperator"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/auth_button"
+        android:textColor="@color/colorAccent"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[Operator Charges May Apply]"/>
+
+
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/txtMed"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txtoperator"
+        android:textColor="@color/colorAccent"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Take Note That On Clicking Send Code, You Agree To The Terms And Conditions Of AskPharm "/>
+
+
+    <TextView
+        android:id="@+id/terms"
+        android:clickable="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/sc_red"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read The Terms And Conditions"/>
+
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/sitback"
+        android:gravity="center"
+        android:layout_below="@+id/imageview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="@string/msg_sit_back"
+        android:textColor="@android:color/white"
+        android:textSize="16dp" />
+
+    <TextView
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:id="@+id/manualotp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/sitback"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="@string/msg_manual_otp"
+        android:textColor="@android:color/white"
+        android:textSize="12dp" />
+
+    <com.goodiebag.pinview.Pinview
+        android:theme="@style/CustomDigitsTheme"
+        android:visibility="gone"
+        android:layout_below="@+id/manualotp"
+        android:id="@+id/pinview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cursorVisible="false"
+        app:hint="0"
+        app:inputType="number"
+        app:forceKeyboard="true"
+        app:password="false"
+        app:pinBackground="@drawable/pin_drawable"
+        app:pinHeight="40dp"
+        app:pinLength="6"
+        app:pinWidth="40dp" />
+
+    <Button
+        android:visibility="gone"
+        android:layout_below="@+id/pinview"
+        android:id="@+id/btn_verify_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/lbl_submit"
+        android:textColor="@android:color/white"
+        android:textSize="14dp" />
+    <Button
+        android:visibility="gone"
+        android:layout_below="@+id/btn_verify_otp"
+        android:id="@+id/goback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/btn_back"
+        android:textColor="@android:color/white"
+        android:textSize="14dp" />
+
+</RelativeLayout>

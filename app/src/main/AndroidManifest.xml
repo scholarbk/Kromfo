@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="scholar.kromfo">
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <application
+        android:name=".Helpers.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Classes.MainActivity"
+            android:theme="@style/CustomDigitsTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".Service.KromfoService"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver android:name=".Service.BootReceiver">
+            <intent-filter >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".Service.VolumeService"
+            android:exported="false" />
+        <receiver android:name=".Service.KromfoReceiver"  android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name=".Classes.Register"
+            android:theme="@style/CustomDigitsTheme" />
+        <activity
+            android:name=".Classes.LockScreenActivity"
+            android:launchMode="singleInstance"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/CustomDigitsTheme" />
+        <activity android:name=".Classes.PasswordActivity"  android:launchMode="singleInstance"
+            android:configChanges="orientation|screenSize" android:theme="@style/CustomDigitsTheme"></activity>
+        <activity android:name=".Helpers.MotionSensors"  android:launchMode="singleInstance"
+            android:configChanges="orientation|screenSize" android:theme="@style/CustomDigitsTheme"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "993052602237",
+    "firebase_url": "https://kromfo-3287.firebaseio.com",
+    "project_id": "kromfo-3287",
+    "storage_bucket": "kromfo-3287.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993052602237:android:a6e4a9cbcd373ddb",
+        "android_client_info": {
+          "package_name": "scholar.kromfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993052602237-oglvu08gap5kmmfufj7pe7o8os6kv58p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "scholar.kromfo",
+            "certificate_hash": "11e86e13c0fd52b2aed67f2095f655979072d088"
+          }
+        },
+        {
+          "client_id": "993052602237-mocrbr4gio9jt3b84vub1ocjhfmnd9gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo1tRSI-wySX7KUg-VFjAC3iafPoaZ9Ls"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993052602237-mocrbr4gio9jt3b84vub1ocjhfmnd9gf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
