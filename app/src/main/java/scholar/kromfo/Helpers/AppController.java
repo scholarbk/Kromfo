@@ -22,7 +22,12 @@ public class AppController extends Application {
         instance = this;
         registerKioskModeScreenOffReceiver();
         startKioskService();
+       startMotionSensor();
 
+    }
+
+    private void startMotionSensor() {
+        startService(new Intent(this, MotionSensors.class));
     }
 
     private void registerKioskModeScreenOffReceiver() {
@@ -34,7 +39,6 @@ public class AppController extends Application {
 
     public PowerManager.WakeLock getWakeLock() {
         if(wakeLock == null) {
-            // lazy loading: first call, create wakeLock via PowerManager.
             PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
             wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "wakeup");
         }
@@ -44,4 +48,5 @@ public class AppController extends Application {
     private void startKioskService() { // ... and this method
         startService(new Intent(this, KromfoService.class));
     }
+
 }

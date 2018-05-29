@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="scholar.kromfo">
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".Helpers.AppController"
         android:allowBackup="true"
@@ -29,32 +31,43 @@
             android:name=".Service.KromfoService"
             android:enabled="true"
             android:exported="false" />
+
         <receiver android:name=".Service.BootReceiver">
-            <intent-filter >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         <service
             android:name=".Service.VolumeService"
             android:exported="false" />
-        <receiver android:name=".Service.KromfoReceiver"  android:exported="false">
+        <service android:name=".Helpers.MotionSensors" />
+
+        <receiver
+            android:name=".Service.KromfoReceiver"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name=".Classes.Register"
             android:theme="@style/CustomDigitsTheme" />
         <activity
+            android:name=".Classes.WalkThrough" />
+        <activity
             android:name=".Classes.LockScreenActivity"
-            android:launchMode="singleInstance"
             android:configChanges="orientation|screenSize"
+            android:launchMode="singleInstance"
             android:theme="@style/CustomDigitsTheme" />
-        <activity android:name=".Classes.PasswordActivity"  android:launchMode="singleInstance"
-            android:configChanges="orientation|screenSize" android:theme="@style/CustomDigitsTheme"></activity>
-        <activity android:name=".Helpers.MotionSensors"  android:launchMode="singleInstance"
-            android:configChanges="orientation|screenSize" android:theme="@style/CustomDigitsTheme"></activity>
+        <activity
+            android:name=".Classes.PasswordActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleInstance"
+            android:theme="@style/CustomDigitsTheme" />
+        <activity android:name=".Classes.WalkThrough"></activity>
     </application>
 
 </manifest>

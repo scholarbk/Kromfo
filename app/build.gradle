@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.github.GoodieBag:Pinview:v1.3'
+    implementation 'com.github.Shashank02051997:FancyWalkthrough-Android:2.1'
     implementation 'com.hbb20:ccp:2.1.9'
     implementation 'com.github.d-max:spots-dialog:0.7@aar'
     implementation 'com.google.firebase:firebase-storage:15.0.0'

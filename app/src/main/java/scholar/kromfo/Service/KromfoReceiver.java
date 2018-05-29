@@ -62,7 +62,7 @@ public class KromfoReceiver extends BroadcastReceiver {
                             .setSmallIcon(R.mipmap.ic_launcher_round)
                             .setContentTitle("KromFo App")
                             .setContentText("Would You Like To Enable Charger Removed Anti-Theft Mode?")
-                            .setOngoing(true)
+                            .setOngoing(false)
                             .setAutoCancel(true);
             mBuilder.setVibrate(new long[] { 1000, 1000});
             PendingIntent contentIntent = PendingIntent.getActivity(context, 0,

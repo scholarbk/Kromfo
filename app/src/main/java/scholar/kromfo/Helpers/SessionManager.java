@@ -35,7 +35,8 @@ public class SessionManager {
     private static final String KEY_IS_NOTIFY_ME_CHARGING = "isInNotifyMeSense";
     private static final String KEY_IS_KIOSK_MODE_ACTIVE = "isKioskModeActive";
     private static final String KEY_IS_BOOT_RECOVERY = "isBootModeActive";
-
+    private static final String KEY_IS_FLAT_SURFACE = "isFlat";
+    private static final String KEY_IS_INPOCKET = "inPocket";
 
     public SessionManager(Context context) {
         this._context = context;
@@ -77,9 +78,27 @@ public class SessionManager {
 
 
     }
+    public void setFlatSense(boolean isFlatMode) {
+
+        editor.putBoolean(KEY_IS_FLAT_SURFACE, isFlatMode);
+
+        // commit changes
+        editor.commit();
+
+
+    }
     public void setChargeSense(boolean isInChargeSense) {
 
         editor.putBoolean(KEY_IS_IN_CHARGE_SENSE, isInChargeSense);
+
+        // commit changes
+        editor.commit();
+
+
+    }
+    public void setPocketSense(boolean isInPocketSense) {
+
+        editor.putBoolean(KEY_IS_INPOCKET, isInPocketSense);
 
         // commit changes
         editor.commit();
@@ -107,6 +126,12 @@ public class SessionManager {
     }
     public boolean isBootSense(){
         return pref.getBoolean(KEY_IS_BOOT_RECOVERY, false);
+    }
+    public boolean isFlatSense(){
+        return pref.getBoolean(KEY_IS_FLAT_SURFACE, false);
+    }
+    public boolean isInPocketSense(){
+        return pref.getBoolean(KEY_IS_INPOCKET, false);
     }
     public void createOTP(String otp) {
         editor.putString(KEY_OTP, otp);

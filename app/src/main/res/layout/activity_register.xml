@@ -101,7 +101,7 @@
         android:textSize="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please Take Note That On Clicking Send Code, You Agree To The Terms And Conditions Of AskPharm "/>
+        android:text="Please Take Note That On Clicking Send Code, You Agree To The Terms And Conditions Of Kromfo App "/>
 
 
     <TextView

@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import scholar.kromfo.Helpers.MotionSensors;
 import scholar.kromfo.Helpers.SessionManager;
 import scholar.kromfo.R;
 import scholar.kromfo.Service.KromfoService;
@@ -93,6 +94,7 @@ public class LockScreenActivity extends AppCompatActivity {
                     mediaPlayer.stop();
                     mediaPlayer.release();
                     mediaPlayer=null;
+
                     countDownTimer.cancel();
                     v.cancel();
                 }
@@ -107,8 +109,10 @@ public class LockScreenActivity extends AppCompatActivity {
                     timer = null;
                     myTimerTask.cancel();
                 }
-                Toast.makeText(LockScreenActivity.this,"Correct Code",Toast.LENGTH_SHORT).show();
+              
                 stopService(new Intent(LockScreenActivity.this, VolumeService.class));
+                stopService(new Intent(LockScreenActivity.this, MotionSensors.class));
+                session.setFlatSense(false);
                 startActivity(new Intent(LockScreenActivity.this,MainActivity.class));
 
                 finish();
@@ -140,14 +144,17 @@ public class LockScreenActivity extends AppCompatActivity {
         public void onFinish() {
 
             timerView.setText("done!");
-            if(mediaPlayer.isPlaying()){
-                mediaPlayer.stop();
-                mediaPlayer.release();
-                mediaPlayer=null;
+            if(mediaPlayer!=null){
+                if(mediaPlayer.isPlaying()){
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                    mediaPlayer=null;
 
 
 
+                }
             }
+
 
             mediaPlayer = MediaPlayer.create(LockScreenActivity.this, R.raw.siren);
             mediaPlayer.start();

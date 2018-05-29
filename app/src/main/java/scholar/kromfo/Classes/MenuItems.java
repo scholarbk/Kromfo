@@ -13,7 +13,7 @@ import scholar.kromfo.R;
 
 
 public class MenuItems extends Fragment {
-    private Switch chargingSwitch,bootSwitch;
+    private Switch chargingSwitch,bootSwitch,flatswitch,pocketSwitch;
     SessionManager sessionManager;
     public static MenuItems newInstance() {
        MenuItems fragment = new MenuItems();
@@ -30,6 +30,8 @@ public class MenuItems extends Fragment {
         sessionManager=new SessionManager(getContext());
         chargingSwitch=(Switch)view.findViewById(R.id.chargingSwitch);
         bootSwitch=(Switch)view.findViewById(R.id.bootSwitch);
+        pocketSwitch=(Switch)view.findViewById(R.id.pocketSwitch);
+        flatswitch=(Switch)view.findViewById(R.id.flatSwitch);
         if(sessionManager.isChargnSense()==true){
             chargingSwitch.setChecked(true);
         }else{
@@ -52,6 +54,7 @@ public class MenuItems extends Fragment {
             bootSwitch.setChecked(true);
         }else{
             bootSwitch.setChecked(false);
+
         }
         if ( bootSwitch != null) {
             bootSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -61,6 +64,40 @@ public class MenuItems extends Fragment {
                         sessionManager.setBootSense(true);
                     } else {
                         sessionManager.setBootSense(false);
+                    }
+                }
+            });
+        }
+        if(sessionManager.isFlatSense()==true){
+           flatswitch.setChecked(true);
+        }else{
+           flatswitch.setChecked(false);
+        }
+        if (flatswitch != null) {
+            flatswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked) {
+                        sessionManager.setFlatSense(true);
+                    } else {
+                        sessionManager.setFlatSense(false);
+                    }
+                }
+            });
+        }
+        if(sessionManager.isInPocketSense()==true){
+            pocketSwitch.setChecked(true);
+        }else{
+            pocketSwitch.setChecked(false);
+        }
+        if (pocketSwitch != null) {
+            pocketSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked) {
+                        sessionManager.setPocketSense(true);
+                    } else {
+                        sessionManager.setPocketSense(false);
                     }
                 }
             });
